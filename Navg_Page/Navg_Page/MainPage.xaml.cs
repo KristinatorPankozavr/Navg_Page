@@ -10,78 +10,101 @@ namespace Navg_Page
 {
     public partial class MainPage : ContentPage
     {
+        private View esm_Button;
+
+
         public MainPage()
         {
-        
-            StackLayout st = new StackLayout();
-            Button esm_Btn = new Button { Text = "esmaspaev" };
-            Button teis_Btn = new Button { Text = "teisipaev" };
-            Button kolm_Btn = new Button { Text = "kolmapaev" };
-            Button nelj_Btn = new Button { Text = "neljapaev" };
-            Button reed_Btn = new Button { Text = "reede" };
-            Button laul_Btn = new Button { Text = "laupaev" };
-            Button puh_Btn = new Button { Text = "puhapaev" };
+            StackLayout bib = new StackLayout();
+            ScrollView scrollView = new ScrollView { Content = bib };
 
-            st.Children.Add(esm_Btn);
-            st.Children.Add(teis_Btn);
-            st.Children.Add(kolm_Btn);
-            st.Children.Add(nelj_Btn);
-            st.Children.Add(reed_Btn);
-            st.Children.Add(laul_Btn);
-            st.Children.Add(puh_Btn);
+            Button Esm_Button = new Button { Text = "Понедельник", ImageSource = "gzt.png"};
+            bib.Children.Add(Esm_Button);
+            Esm_Button.Clicked += EsmButton_Clicked;
+            Esm_Button.BackgroundColor = Color.Transparent;
+            BackgroundColor = Color.Wheat;
 
-            esm_Btn.Clicked += new EventHandler(buttons_Click);
-            teis_Btn.Clicked += new EventHandler(buttons_Click);
-            kolm_Btn.Clicked += new EventHandler(buttons_Click);
-            nelj_Btn.Clicked += new EventHandler(buttons_Click);
-            reed_Btn.Clicked += new EventHandler(buttons_Click);
-            laul_Btn.Clicked += new EventHandler(buttons_Click);
-            puh_Btn.Clicked += new EventHandler(buttons_Click);
+            Button Teis_Button = new Button { Text = "Вторник", ImageSource = "gzt.png" };
+            bib.Children.Add(Teis_Button);
+            Teis_Button.Clicked += TeisButton_Clicked;
+            Teis_Button.BackgroundColor = Color.Transparent;
+            BackgroundColor = Color.Wheat;
 
-            Content = st;
+            Button Kolm_Button = new Button { Text = "Среда", ImageSource = "gzt.png" };
+            bib.Children.Add(Kolm_Button);
+            Kolm_Button.Clicked += KolmButton_Clicked;
+            Kolm_Button.BackgroundColor = Color.Transparent;
+            BackgroundColor = Color.Wheat;
+
+            Button Nel_Button = new Button { Text = "Четверг", ImageSource = "gzt.png" };
+            bib.Children.Add(Nel_Button);
+            Nel_Button.Clicked += NelButton_Clicked;
+            Nel_Button.BackgroundColor = Color.Transparent;
+            BackgroundColor = Color.Wheat;
+
+            Button Reede_Button = new Button { Text = "Пятница", ImageSource = "love.png" };
+            bib.Children.Add(Reede_Button);
+            Reede_Button.Clicked += ReedeButton_Clicked;
+            Reede_Button.BackgroundColor = Color.Transparent;
+            BackgroundColor = Color.Wheat;
+
+            Button Lau_Button = new Button { Text = "Суббота", ImageSource = "mylove.png" };
+            bib.Children.Add(Lau_Button);
+            Lau_Button.Clicked += LauButton_Clicked;
+            Lau_Button.BackgroundColor = Color.Transparent;
+            BackgroundColor = Color.Wheat;
+
+            Button Puh_Button = new Button { Text = "Воскресенье", ImageSource = "love.png" };
+            bib.Children.Add(Puh_Button);
+            Puh_Button.Clicked += PuhButton_Clicked;
+            Puh_Button.BackgroundColor = Color.Transparent;
+            BackgroundColor = Color.Wheat;
+
+            InitializeComponent();
+            Content = scrollView;
         }
 
-        private async void buttons_Click(object sender, EventArgs e)
+        private async void EsmButton_Clicked(object sender, EventArgs e)
         {
-            var btn = (Button)sender;
-            switch (btn.Text)//Проверяеем текст на кнопке
-            {
-                case "esmaspaev":
-                    await Navigation.PopAsync();//Закрываем страницу
-                    await Navigation.PushAsync(new esmaspaev());//Открываем страницу
-                    break;
-
-                case "teisispaev":
-                    await Navigation.PopAsync();//Закрываем страницу
-                    await Navigation.PushAsync(new teisipaev());//Открываем страницу
-                    break;
-
-                case "kolmapaev":
-                    await Navigation.PopAsync();//Закрываем страницу
-                    await Navigation.PushAsync(new kolmapaev());//Открываем страницу
-                    break;
-
-                case "neljapaev":
-                    await Navigation.PopAsync();//Закрываем страницу
-                    await Navigation.PushAsync(new neljapaev());//Открываем страницу
-                    break;
-
-                case "reede":
-                    await Navigation.PopAsync();//Закрываем страницу
-                    await Navigation.PushAsync(new reede());//Открываем страницу
-                    break;
-
-                case "laupaev":
-                    await Navigation.PopAsync();//Закрываем страницу
-                    await Navigation.PushAsync(new laupaev());//Открываем страницу
-                    break;
-
-                case "puhapaev":
-                    await Navigation.PopAsync();//Закрываем страницу
-                    await Navigation.PushAsync(new puhapaev());//Открываем страницу
-                    break;
-
-            }
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new esmaspaev());
         }
+
+        private async void TeisButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new teisipaev());
+        }
+
+        private async void KolmButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new kolmapaev());
+        }
+
+        private async void NelButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new neljapaev());
+        }
+
+        private async void ReedeButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new reede());
+        }
+
+        private async void LauButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new laupaev());
+        }
+
+        private async void PuhButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new puhapaev());
+        }
+
     }
 }

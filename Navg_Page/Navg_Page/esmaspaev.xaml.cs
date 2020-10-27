@@ -14,24 +14,68 @@ namespace Navg_Page
     {
         public esmaspaev()
         {
-            string[] tasks = new string[] { "Просыпаюсь", "Завтракаю", "Еду на учебу", "Завершение учебного дня", "Еду домой", "Занимаюсь своими делами", "Сон" };
-            ListView list = new ListView();
-            Button back = new Button { Text = "Назад", BackgroundColor = Color.Wheat };
-            back.Clicked += Back_Clicked;
+            Title = "Понедельник";
+            string[] tasks = new string[] { "Проснуться", "Завтрак", "Собраться", "Дорога до учебы", "Учеба", "Дорога домой", "Домашние дела/отдых", "Сон" };
 
+            ListView list = new ListView { BackgroundColor = Color.Wheat, SeparatorColor = Color.Black, RowHeight = 80 };
             list.ItemsSource = tasks;
+
+            Button bb = new Button { Text = "Назад" };
+            bb.Clicked += Bb_Clicked;
+
             list.ItemSelected += List_ItemSelected;
-            Content = new StackLayout { Children = { list, back } };
+            Content = new StackLayout { Children = { list, bb } };
         }
 
+        string kell;
         private async void List_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            string text = e.SelectedItem.ToString();
+            if (e.SelectedItemIndex == 0)
+            {
+                kell = "7:00";
+            }
+
+            if (e.SelectedItemIndex == 1)
+            {
+                kell = "7:10";
+            }
+
+            if (e.SelectedItemIndex == 2)
+            {
+                kell = "7:30";
+            }
+
+            if (e.SelectedItemIndex == 3)
+            {
+                kell = "7:50-8:20";
+            }
+
+            if (e.SelectedItemIndex == 4)
+            {
+                kell = "8:30-16:45";
+            }
+
+            if (e.SelectedItemIndex == 5)
+            {
+                kell = "17:00-17:30";
+            }
+
+            if (e.SelectedItemIndex == 6)
+            {
+                kell = "17:50-23:00";
+            }
+
+            if (e.SelectedItemIndex == 7)
+            {
+                kell = "00:00";
+            }
         }
 
-        private async void Back_Clicked(object sender, EventArgs e)
+        private async void Bb_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
+
         }
     }
 }
