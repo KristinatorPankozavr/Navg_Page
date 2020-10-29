@@ -17,7 +17,7 @@ namespace Navg_Page
             Title = "Понедельник";
             string[] tasks = new string[] { "Проснуться", "Завтрак", "Собраться", "Дорога до учебы", "Учеба", "Дорога домой", "Домашние дела/отдых", "Сон" };
 
-            ListView list = new ListView { BackgroundColor = Color.Wheat, SeparatorColor = Color.Black, RowHeight = 80 };
+            ListView list = new ListView { BackgroundColor = Color.Wheat, SeparatorColor = Color.Black, RowHeight = 100 };
             list.ItemsSource = tasks;
 
             Button bb = new Button { Text = "Назад" };
