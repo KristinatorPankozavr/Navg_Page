@@ -27,6 +27,11 @@ namespace Navg_Page
             Content = new StackLayout { Children = { list, bb } };
         }
 
+        private void Bb_Clicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         string kell;
         private async void List_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -70,12 +75,7 @@ namespace Navg_Page
             {
                 kell = "01:00";
             }
-        }
-
-        private async void Bb_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync();
-
+            await DisplayAlert(kell, text, "Да");
         }
     }
 }

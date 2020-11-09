@@ -75,5 +75,7 @@ namespace Navg_Page
             {
                 kell = "01:00";
             }
+            await DisplayAlert(kell, text, "Да");
+        }
     }
-}}
+}
